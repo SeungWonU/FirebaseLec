@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "521959193396",
+    "firebase_url": "https://android-kotlin-lecture-fcea7.firebaseio.com",
+    "project_id": "android-kotlin-lecture-fcea7",
+    "storage_bucket": "android-kotlin-lecture-fcea7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521959193396:android:383b934bed03f70c238361",
+        "android_client_info": {
+          "package_name": "kr.teamcadi.firebasekt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521959193396-onpjb1c92ofnurkqjq8733ur8qflqth8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiy_TWYfSpNL8j2mZEPYY3WWbkDCWiuhg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521959193396-onpjb1c92ofnurkqjq8733ur8qflqth8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

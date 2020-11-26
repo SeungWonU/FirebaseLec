@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         Firebase.auth.currentUser ?: finish()
 
-
         //Storage 부분
         storage = Firebase.storage
         val storageRef = storage.reference // reference to root
@@ -36,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         val imageRef2 = storageRef.child("/summer.PNG")
         val imageRef3 = storageRef.child("/fall.PNG")
         val imageRef4 = storageRef.child("/winter.PNG")
+
         displayImageRef(imageRef1, binding.imgSeason) // 이 함수는 맨 아래에 선언
 
 
@@ -70,11 +70,6 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
         }
-
-
-
-
-
 
 
         ///////////////////////////////////////////////

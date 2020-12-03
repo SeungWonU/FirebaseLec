@@ -1,5 +1,8 @@
 package kr.teamcadi.firebasekt
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +13,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.google.firebase.storage.FirebaseStorage
@@ -27,6 +31,20 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Firebase.auth.currentUser ?: finish()
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { // it: Task<String!>
+            binding.textFCMToken.text = if (it.isSuccessful) it.result else "Token Error!"
+// copy FCM token to clipboard
+            val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val clip = ClipData.newPlainText("FCM Token", binding.textFCMToken.text)
+            clipboard.setPrimaryClip(clip)
+// write to logcat
+            Log.d(MyFirebaseMessagingService.TAG, "FCM token: ${binding.textFCMToken.text}")
+        }
+
+            binding.TextViewGet.text = intent.getStringExtra("message")
+
+
 
         //Storage 부분
         storage = Firebase.storage

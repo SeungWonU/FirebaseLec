@@ -33,9 +33,14 @@ android {
     kotlinOptions {
         jvmTarget   = '1.8'
     }
+    buildFeatures{
+        viewBinding true;
+    }
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-config-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'

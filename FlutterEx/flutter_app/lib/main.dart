@@ -1,39 +1,70 @@
+// import 'package:flutter/material.dart';
+//
+// class _MyFormState extends State<MyForm>{
+//   TextEditingController textEditingController = TextEditingController();
+//   String displayedText = "Hello, Seungwon's Flutter";
+//
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [Text(displayedText),
+//         TextField(controller: textEditingController),
+//         RaisedButton(child: Text("Change text!!!"),
+//             onPressed: () => setState((){
+//               displayedText = textEditingController.text;
+//             }),
+//         ),
+//         ],
+//       ));
+//   }
+// }
+// class MyForm extends StatefulWidget{
+//   _MyFormState createState() => _MyFormState();
+// }
+//
+// class MyApp extends StatelessWidget{
+//   Widget build(BuildContext context){
+//     return MaterialApp(
+//       title: 'Button and TextFiled test!!!',
+//       home:
+//         Scaffold(appBar: AppBar(title: Text('AppBar Title')),body:MyForm()),
+//     );
+//   }
+// }
+// void main() => runApp(MyApp());
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_app/pages/start_page.dart';
+import 'package:flutter_app/pages/image_page.dart';
+import 'package:flutter_app/pages/change_name.dart';
+import 'package:flutter_app/pages/form_page.dart';
+import 'package:flutter_app/pages/list_page.dart';
+import 'package:flutter_app/app_state.dart';
 
-class _MyFormState extends State<MyForm>{
-  TextEditingController textEditingController = TextEditingController();
-  String displayedText = "Hello, Seungwon's Flutter";
 
+
+class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text(displayedText),
-        TextField(controller: textEditingController),
-        RaisedButton(child: Text("Change text!!!"),
-            onPressed: () => setState((){
-              displayedText = textEditingController.text;
-            }),
-        ),
-        ],
-      ));
-  }
-}
-class MyForm extends StatefulWidget{
-  _MyFormState createState() => _MyFormState();
-}
-
-class MyApp extends StatelessWidget{
-  Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Button and TextFiled test!!!',
-      home:
-        Scaffold(appBar: AppBar(title: Text('AppBar Title')),body:MyForm()),
+      title: 'Navigation Test',
+      initialRoute: StartPage.nav_url,
+      routes: {
+        StartPage.nav_url: (context) => StartPage(),
+        ChangeNamePage.nav_url: (context) => ChangeNamePage(),
+        FormPage.nav_url: (context) => FormPage(),
+        ImagePage.nav_url: (context) => ImagePage(),
+        ListPage.nav_url: (context) => ListPage(),
+      },
     );
   }
 }
-void main() => runApp(MyApp());
 
+void main() => runApp(ChangeNotifierProvider(
+  // MyApp() 포함하여 자손 위젯들에게 AppState()를 제공
+    create: (context) => AppState(),
+    child: MyApp()));
 
 
 
